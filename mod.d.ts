@@ -1,4 +1,4 @@
-/**
+/*
 * @license Apache-2.0
 *
 * Copyright (c) 2025 The Stdlib Authors.
@@ -16,28 +16,35 @@
 * limitations under the License.
 */
 
-'use strict';
+// TypeScript Version: 4.1
+
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@main/index.d.ts"/>
+
+import { typedndarray } from '@stdlib/types/ndarray';
 
 /**
-* Compute the sum of a one-dimensional ndarray, ignoring `NaN` values and using pairwise summation.
+* Computes the sum of a one-dimensional ndarray, ignoring `NaN` values and using pairwise summation.
 *
-* @module @stdlib/blas-ext-base-ndarray-gnansumpw
+* ## Notes
+*
+* -   The function expects the following ndarrays:
+*
+*     -   a one-dimensional input ndarray.
+*
+* @param arrays - array-like object containing ndarrays
+* @returns sum
 *
 * @example
 * var vector = require( '@stdlib/ndarray-vector-ctor' );
-* var gnansumpw = require( '@stdlib/blas-ext-base-ndarray-gnansumpw' );
 *
 * var x = vector( [ 1.0, -2.0, NaN, 2.0 ], 'generic' );
 *
 * var v = gnansumpw( [ x ] );
 * // returns 1.0
 */
-
-// MODULES //
-
-var main = require( './main.js' );
+declare function gnansumpw<T extends typedndarray<number> = typedndarray<number>>( arrays: [ T ] ): number;
 
 
 // EXPORTS //
 
-module.exports = main;
+export = gnansumpw;
